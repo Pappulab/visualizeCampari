@@ -72,10 +72,10 @@ if __name__=="__main__":
 	parser = argparse.ArgumentParser(prog="presentCampari",
 				  description="An Automatic Presentation Generator for Campari Data")
 	# Directory desired
-	parser.add_argument('--directory',	'-d',	help="Directory of the Campari output after running graphCampari.m", 	required=True)
-	parser.add_argument('--format',		'-f',	help="Output format for the presentation",	default='ppt', type=ImpressExtension)
-	parser.add_argument('--title',		'-t',	help="Title slide title text (Put in parentheses)", default='Visualized Campari Output')
-	parser.add_argument('--output',		'-o',	help="Output presentation file name", 		default='Presentation.ppt')
+	parser.add_argument('--directory',	'-d',	help="Directory of the Campari output after running graphCampari.m", 									required=True)
+	parser.add_argument('--format',		'-f',	help="Output format for the presentation",				default='ppt', 				type=ImpressExtension)
+	parser.add_argument('--title',		'-t',	help="Title slide title text (Put in parentheses)", 			default='Visualized Campari Output')
+	parser.add_argument('--output',		'-o',	help="Output presentation file name", 					default='Presentation.ppt')
 	
 	args = parser.parse_args()
 	

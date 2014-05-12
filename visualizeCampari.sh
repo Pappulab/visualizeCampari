@@ -16,12 +16,13 @@
 # Start up the OpenOffice port
 soffice --nologo --nodefault --accept="socket,host=localhost,port=2002;urp;StarOffice.ServiceManager"&
 
-# Get the absolute path to the directory
-ABSPATH="$(cd ${1%/*}; pwd)/${1##*/}"
-
-if [[ -d $1 ]]; then
+if [[ -d $1 ]]; then	
+	# Get the absolute path to the directory
+	ABSPATH="$(cd ${1%/*}; pwd)/${1##*/}"
+	
 	# Graph all data desired
 	matlab -nosplash -nodesktop -r "graphCampari('$ABSPATH');"
+	
 	# Generate a presentation of this data
 	python presentCampari.py -d $ABSPATH
 else

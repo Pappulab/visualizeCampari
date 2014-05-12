@@ -74,7 +74,7 @@ if __name__=="__main__":
 	# Directory desired
 	parser.add_argument('--directory',	'-d',	help="Directory of the Campari output after running graphCampari.m", 	required=True)
 	parser.add_argument('--format',		'-f',	help="Output format for the presentation",	default='ppt', type=ImpressExtension)
-	parser.add_argument('--title',		'-b',	help="Title slide title text (Put in parentheses)", default='Visualized Campari Output')
+	parser.add_argument('--title',		'-t',	help="Title slide title text (Put in parentheses)", default='Visualized Campari Output')
 	parser.add_argument('--output',		'-o',	help="Output presentation file name", 		default='Presentation.ppt')
 	
 	args = parser.parse_args()
@@ -87,6 +87,14 @@ if __name__=="__main__":
 	# If the user gave their raw campari directory (assumed correct at this point)
 	else:
 		args.directory = args.directory + 'parsedOutput_NOBKP/matlab/'
+	
+	# Set the correct output format to the output name
+	if not args.format in args.output:
+		if '.' in args.output:
+			aName = args.output[:args.output.find('.')]
+		else:
+			aName = args.output
+		args.output = aName + '.' + args.format
 	
 	# Right now, only output the presentation to the parsedOutput_NOBKP folder
 	if '/' in args.output:

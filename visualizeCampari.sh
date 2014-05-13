@@ -20,11 +20,16 @@ if [[ -d $1 ]]; then
 	# Get the absolute path to the directory
 	ABSPATH="$(cd ${1%/*}; pwd)/${1##*/}"
 	
+	# Get the name of the directory all the CAMPARI data is in
+	temp1=$ABSPATH%parsedOutput_NOBKP*}
+	temp2=${temp1%/*}
+	campariRun=${temp2##*/}
+	
 	# Graph all data desired
 	matlab -nosplash -nodesktop -r "graphCampari('$ABSPATH');"
 	
 	# Generate a presentation of this data
-	python presentCampari.py -d $ABSPATH
+	python presentCampari.py -d $ABSPATH -t $campariRun -o $campariRun
 else
 	echo "$1 is not a directory."
 	exit 1

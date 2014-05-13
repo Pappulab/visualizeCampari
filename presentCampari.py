@@ -68,6 +68,8 @@ def ImpressExtension(aFmt):
 if __name__=="__main__":
 	import argparse
 	
+	print "Starting to create the presentation."
+	
 	# Basic description of presentCampari.py for the help
 	parser = argparse.ArgumentParser(prog="presentCampari",
 				  description="An Automatic Presentation Generator for Campari Data")
@@ -101,3 +103,5 @@ if __name__=="__main__":
 		args.output = args.output[args.output.rfind('/')+1:]
 	
 	generateDocument(args)
+	
+	print "Finished creating the presentation."

@@ -14,6 +14,7 @@
 %==========================================================================
 
 function graphCampari(inDir)
+    display('Starting to graph raw CAMPARI data');
     % Directory formatting
     cd(inDir);
     outDir = 'parsedOutput_NOBKP/';
@@ -138,6 +139,7 @@ function graphCampari(inDir)
         % !!!!!!!!!!!!!!!!!!!!!!!Continue Here!!!!!!!!!!!!!!!!!!!!!!!!!!!
         
     end
+    display('Finished graphing raw CAMPARI data');
     % Close after finishing
     exit
 end
